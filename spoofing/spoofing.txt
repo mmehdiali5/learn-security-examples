@@ -1,1 +1,10 @@
-Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+1) Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+Setting sameSite: true for the cookie option in session configuration enhances security by mitigating certain types of cross-site request forgery (CSRF) attacks.
+
+When a cookie is set with the sameSite attribute set to true, it means that the cookie will only be sent in a first-party context. This prevents the cookie from being sent by the browser in cross-site requests, which can help protect against CSRF attacks.
+
+In a CSRF attack, an attacker tricks a user's browser into making an unintended request to a different website where the user is authenticated, potentially leading to unauthorized actions being performed on behalf of the user. By setting sameSite: true, you can prevent the browser from automatically including the session cookie in requests initiated by other sites.
+
+2) Which CIA properties do you think Spoofing violates?
+Confidentiality can be violated as some unauthorized app or user can access the sensitive data using CSRF attack.
