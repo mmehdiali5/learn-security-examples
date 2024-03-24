@@ -1,6 +1,6 @@
 - Briefly explain the vulnerability and why the secure version prevents the vulnerability.
 1. Vulnerability Explanation:
-The vulnerability in the original code lies in the direct usage of user-provided input (`id`) in the MongoDB query without proper validation or sanitization. This makes the code susceptible to NoSQL injection attacks, where attackers can manipulate the input to execute malicious queries against the database. Malicious input can lead to unauthorized data access, manipulation, or denial of service.
+The vulnerability in the original code lies in the direct usage of user-provided input (`id`) in the MongoDB query without proper validation or sanitization. This makes the code susceptible to NoSQL injection attacks, where attackers can manipulate the input to execute malicious queries against the database. Malicious input can lead to denial of service by crashing the server with invalid input for findOne.
 
 Secure Version Explanation:
 In the secure version of the code, a try-catch block is implemented to handle potential errors during query execution. While this helps prevent the application from crashing, it doesn't fully address the vulnerability. However, direct input sanitization or validation is not implemented, leaving the code still vulnerable to NoSQL injection attacks.
