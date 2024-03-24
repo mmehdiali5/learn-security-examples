@@ -1,0 +1,18 @@
+Q1) Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The vulnerability in the provided code lies in the lack of proper authorization checks during the role update process.
+Specifically, any authenticated user can attempt to update the role of any other user without sufficient checks to ensure that
+the requesting user has the appropriate privileges to perform such an action. This lack of authorization verification opens
+up the possibility of privilege escalation, where a user can gain higher privileges than they are entitled to.
+
+In the secure version of the code, proper authorization checks are implemented to prevent privilege escalation.
+The code first checks if the requesting user is authenticated (logged in) by verifying the presence of the userId in the session
+data. Then, it checks if the authenticated user has the 'admin' role before allowing them to update the role of other users.
+By enforcing these authorization checks, the secure version ensures that only users with administrative privileges can
+perform role updates, mitigating the risk of privilege escalation.
+
+Q2) What additional security mechanisms can you incorporate to prevent such attacks?
+Role-Based Access Control (RBAC): Implement RBAC to define and enforce fine-grained access control policies based on
+user roles and permissions. This ensures that only authorized users can perform specific actions within the system
+
+Session Timeout: Implement session timeout mechanisms to automatically invalidate sessions after a period of inactivity,
+reducing the window of opportunity for attackers to exploit session hijacking vulnerabilities.
