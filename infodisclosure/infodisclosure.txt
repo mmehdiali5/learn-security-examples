@@ -1,3 +1,15 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The vulnerability in the original code lies in the lack of input validation and sanitization,
+which opens up the possibility of NoSQL injection attacks. NoSQL injection occurs when untrusted data is used to
+construct database queries, allowing attackers to manipulate or inject malicious code into these queries, potentially
+leading to unauthorized access or data leakage.
+
 Which CIA property does tampering violate?
+Information disclosure violates the confidentiality aspect of the CIA (Confidentiality, Integrity, Availability)
+triad. In the context of the provided code, if a NoSQL injection attack were successful, it could potentially lead to the
+disclosure of sensitive user information stored in the database, compromising confidentiality.
+
 What additional security mechanisms can you incorporate?
+Parameterized Queries: Instead of manually sanitizing inputs and constructing queries, use parameterized queries provided by database libraries. Parameterized queries separate the query logic from the data, preventing injection attacks.
+Authentication: Implement robust authentication mechanisms, such as multi-factor authentication (MFA) or OAuth, to further secure user access to the application.
+Authorization: Implement proper authorization checks to ensure that users only have access to the resources and actions they are authorized to perform.
