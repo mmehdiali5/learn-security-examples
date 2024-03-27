@@ -1,2 +1,29 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+In the insecure version, there is no mechanism to verify the identity of users who send messages or retrieve them.
+This opens up the possibility of malicious users sending messages on behalf of others, leading to potential repudiation
+issues where users deny sending certain messages.
+
+By maintaining comprehensive audit logs, the secure version provides a reliable trail of evidence that can be used to verify
+the actions performed within the system. In the event of disputes or investigations related to repudiation, these audit logs
+serve as valuable forensic evidence, helping to establish the authenticity of user actions and mitigate the risk of
+unauthorized access or denial of responsibility.
+
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+Additional security mechanisms that can be incorporated to prevent such attacks include:
+
+Encryption: Encrypting sensitive data such as user credentials, authentication tokens, and messages can prevent unauthorized
+access even if an attacker gains access to the server's logs or intercepted network traffic.
+
+Input Validation: Implementing strict input validation mechanisms can prevent injection attacks such as SQL injection or
+cross-site scripting (XSS), which could be used to manipulate or access data illegitimately.
+
+Audit Trails: Enhance logging mechanisms to include detailed audit trails with timestamps, user actions, and IP addresses.
+This can provide comprehensive evidence in case of disputes or investigations related to repudiation.
+
+Session Management: Implementing secure session management techniques, such as using HTTPS and securely managing session tokens,
+can prevent session hijacking and unauthorized access to user accounts.
+
+Role-Based Access Control (RBAC): Utilize RBAC to control access to different functionalities based on users' roles and
+permissions. This ensures that users only have access to the functionalities they are authorized to use, reducing the risk
+of unauthorized actions and potential repudiation.
